@@ -9,6 +9,12 @@ High-Fidelity 3D Surface Reconstruction**.
 ----------------------------------------
 ## Installation
 
+```shell
+git clone https://github.com/sn-nir/sn-nir.git
+cd sn-nir
+pip install -r requirements.txt
+```
+
 ## Usage
 
 #### Data Convention
@@ -17,12 +23,16 @@ Our data format is inspired from [IDR](https://github.com/lioryariv/idr/blob/mai
 ```
 CASE_NAME
 |-- cameras.npz    # camera parameters
+|-- image
+    |-- 000.png        # image for each view
+    |-- 001.png
+    ...
 |-- normal
     |-- 000.png        # normal map for each view
     |-- 001.png
     ...
-|-- albedo
-    |-- 000.png        # albedo for each view (optional)
+|-- depth
+    |-- 000.png        # depth for each view
     |-- 001.png
     ...
 |-- mask
