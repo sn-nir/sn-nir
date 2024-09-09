@@ -1,5 +1,5 @@
 # SN-NIR
-This is the official implementation of **Normal-guided Detail-Preserving Neural Implicit Functions for
+This is the official implementation of **Normal-guided Detail-Preserving Neural Implicit Function for
 High-Fidelity 3D Surface Reconstruction**.
 
 ### [Project page](https://sn-nir.github.io/)
