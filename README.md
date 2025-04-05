@@ -61,6 +61,7 @@ python run_experiments.py --mode validate_mesh --conf ./confs/CONF_NAME.conf --c
 ```
 
 ## Citation
+If you find our code useful for your research, please cite as
 
 ```
 @Article{Patel25,
