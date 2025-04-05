@@ -2,7 +2,9 @@
 This is the official implementation of **Normal-guided Detail-Preserving Neural Implicit Function for
 High-Fidelity 3D Surface Reconstruction**.
 
-### [Project page](https://sn-nir.github.io/)
+#### [<ins>Aarya Patel</ins>](https://www.linkedin.com/in/aaryapatel007/), [<ins>Hamid Laga</ins>](https://researchportal.murdoch.edu.au/esploro/profile/hamid_laga/overview), and [<ins>Ojaswa Sharma</ins>](https://www.iiitd.ac.in/ojaswa)
+
+### [Project page](https://sn-nir.github.io/) | [Paper](https://arxiv.org/abs/2406.04861)
 
 <img src="assets/methodology_snnir.jpg">
 
@@ -57,3 +59,21 @@ python run_experiments.py --mode train --conf ./confs/CONF_NAME.conf --case CASE
 ```shell
 python run_experiments.py --mode validate_mesh --conf ./confs/CONF_NAME.conf --case CASE_NAME --is_continue
 ```
+
+## Citation
+
+```
+@Article{Patel25,
+    title={Normal-guided Detail-Preserving Neural Implicit Function for High-Fidelity 3D Surface Reconstruction},
+    author={Patel, Aarya and Laga, Hamid and Sharma, Ojaswa},
+    journal = {Proceedings of the ACM on Computer Graphics and Interactive Techniques},
+    number = {1},
+    volume = {8},
+    article = {12},
+    month = {May},
+    doi = {https://doi.org/10.1145/3728293},
+    year={2025}
+  }
+```
+
+
