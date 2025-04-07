@@ -1,0 +1,461 @@
+body {
+    font-family: IBM Plex Sans, sans-serif;
+    padding-bottom: 50px;
+    font-size: 100%;
+    line-height: 1.3em;
+    letter-spacing: -0.1pt;
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    width : 60%;
+    margin: 0 auto;
+}
+
+a {
+    color: #114ec0;
+    font-weight: 500;
+    text-decoration: none;
+}
+a:hover {
+    color: #006d85;
+    font-style: normal;
+    text-decoration: underline;
+}
+/*COLOR BANNER*/
+#banner {
+    text-align: center;
+    padding: 30px 0 0 0;
+    background-image: linear-gradient(#ffffff, #ffffff);
+    box-shadow: 0 0 15px 30px #ffffff;
+}
+
+/*TITLE + 1,2,3,4*/
+.jumbotron {
+    color: #000000;
+}
+/*Authors*/
+.jumbotron a {
+    color: #4186c7;
+}
+
+.jumbotron a:hover {
+    color: #ff8800;
+}
+
+.jumbotron .link{
+    color: #0f3b64;
+}
+
+#main a:hover {
+    font-weight: 600;
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+
+
+p {
+    text-align: justify;
+}
+
+hr {
+    background: #80808083;
+    margin: 30px 0 20px 0;
+    padding: 1px 0 0 0;
+    max-width: none;
+}
+
+/* BOUTTONS PAPER / SUPPLEMENTARY*/
+.jumbotron .btn-primary {
+    font-size: 110%;
+    color: #fff;
+    background-color: #150c6a;
+    border-color: #6287d1;
+    border-width: 3px;
+    margin: 0 5px 0 0;
+}
+.jumbotron .btn-primary:hover {
+    color: #fff;
+    background-color: #3e87c8;
+    border-color: #c7dc94;
+    font-weight: 500;
+}
+.jumbotron .btn-primary:active:hover {
+    background-color: #78a130;
+    border-color: #000000;
+}
+
+/*BUTTON CODE*/
+.jumbotron .btn-primary1 {
+    font-size: 110%;
+    color: #fff;
+    background-color: #3267e0;
+    border-color: #5e94f0;
+    border-width: 3px;
+    margin: 0 5px 0 0;
+}
+.jumbotron .btn-primary1:hover {
+    color: #e60b0b;
+    background-color: #ab930e;
+    border-color: #ffed8a;
+    font-weight: 500;
+}
+.jumbotron .btn-primary1:active:hover {
+    background-color: #ccb016;
+    border-color: #fcf1b3;
+}
+
+h2 {
+    font-size: 170%;
+    font-weight: 400;
+    padding: 0 20px 0 20px;
+}
+#name {
+    font-size: 120%;
+    font-weight: 700;
+    background: linear-gradient(to bottom, #cfc09f 22%, #634f2c 24%, #cfc09f 26%, #cfc09f 27%, #ffecb3 40%,#6a4c2f 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h5 {
+    text-align: center;
+    font-size: 150%;
+    font-weight: 600;
+    padding: 10px 0 10px 0;
+}
+
+.author {
+    font-size: 110%;
+    font-weight: 500;
+    margin: 0 0 3px 0;
+    padding: 0 0 0 0;
+}
+
+.row-author {
+    margin: 0 70px 0 70px;
+}
+
+.col-author {
+    margin: 0 70px 0 70px;
+}
+h9 {
+    font-size: 90%;
+    color: #999999;
+}
+
+.container {
+    max-width: none;
+    padding: 0 20px 0 20px;
+    flex-direction: row;
+}
+
+.all-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
+
+#title {
+    font-size: 105%;
+    padding: 0 0 10px 0;
+}
+
+/*Equipes de recherche*/
+#affiliation {
+    font-weight: 400;
+    font-size: 110%;
+    color: #24291d;
+    padding: 15px 0 5px 0;
+}
+/*Conférence*/
+#venue {
+    font-weight: 400;
+    font-size: 110%;
+    color: rgb(205, 78, 209);
+    margin: 10px auto 10px auto;
+    padding: 0 20px 0 20px;
+}
+#venue b { font-weight: 600; }
+
+
+#highlight {
+    line-height: 1.5em;
+    font-weight: 600;
+    font-size: 130%;
+    color: #ca3c3c;
+    text-shadow: 0px 0px 10px #FFF;
+}
+#pitch {
+    font-weight: 400;
+    font-size: 105%;
+    max-width: none;
+    color: #9b5555;
+    margin: 20px auto 0 auto;
+}
+#inquiries {
+    font-weight: 400;
+    font-size: 100%;
+    color: #f5a82e;
+    max-width: none;
+    margin: 10px auto 0 auto;
+}
+#inquiries a { color: #0E8; }
+#inquiries a:hover { color: rgb(130, 206, 178); }
+
+.buttons {
+    padding: 10px 0 0 0;
+}
+
+.column-2 {
+    position: relative;
+    float: left;
+    width: 50%;
+}
+.column-3 {
+    position: relative;
+    float: left;
+    width: 32%;
+    margin: 0 0 15px 0;
+}
+.column-4 {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 220px;
+}
+
+.enlarge {
+    padding-bottom: 10px;
+    margin: auto;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.large_video {
+    margin: 10px 0 0 0;
+    border: 1px solid #BBB;
+    box-shadow: 0 0 30px #792;
+}
+
+h6 {
+    font-size: 105%;
+    font-weight: 600;
+}
+.approach_video {
+    margin: 0px 0 20px 0;
+    box-shadow: 0 0 30px rgb(155, 155, 155);
+}
+.approach_text {
+    margin-left: 23px;
+    text-align: justify;
+}
+
+#citation {
+    line-height: 1.1em;
+    max-width: none;
+    letter-spacing: 0pt;
+    font: 95% "Inconsolata";
+    border: 1px solid #d4d4d4;
+    margin: 20px auto 20px auto;
+    padding: 15px 15px 15px 15px;
+    box-shadow: 0 0 10px gray;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.copy-button {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #a0a0a0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background-color: #7c7c7c;
+}
+
+#copyMessage {
+    display: none;
+    color: green;
+}
+
+#textWithLineBreaks {
+    display: none;
+}
+
+/* for recon list */
+li { 
+    cursor: pointer;
+}
+
+.hperso{
+    font-size: 1.2rem;
+}
+
+
+.nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: #000000;
+    --bs-nav-link-hover-color: #000000;;
+    --bs-nav-link-disabled-color: #000000;;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: inherit;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.space-between{
+    margin: 10px;
+}
+
+
+.nav-pills{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.nav-link {
+    display: block; /* Make the nav-link fill the entire width of the nav-item */
+    height: 100%; /* Make the nav-link fill the entire height of the nav-item */
+    padding: 0; /* Remove padding for the nav-link */
+    margin: 0; /* Remove margin for the nav-link */
+    background-color: #ececec;
+}
+
+.nav-justified .nav-item, .nav-justified > .nav-link {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav-fill .nav-item, .nav-fill > .nav-link {
+    flex: auto;
+    flex-grow: 1;
+    flex-basis: auto;
+    text-align: center;
+}
+
+/* Style the buttons that are used to open the tab content */
+.nav-item {
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    background-color: inherit;
+    float: left;
+    border: 1px solid #ddd;
+    outline: none;
+    cursor: pointer;
+    transition: 0.0s;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    align-items: center; /* Align items vertically in the center */
+    text-align: center;
+
+}
+
+.bordered-container {
+    
+    margin: 0px 0 20px 0;
+    box-shadow: 0 0 30px rgb(155, 155, 155);
+  }
+
+.img-responsive{
+    max-width: 100%; /* Make the image responsive to the container's width */
+    max-height: 100%; /* Make the image responsive to the container's height */
+}
+
+/* Change background color of buttons on hover */
+.nav-item:hover {
+    background-color: #acb9db;
+}
+
+/* Create an active/current tablink class */
+.nav-tabs .nav-link.active {
+    background-color: #4f70c9;
+    color:white;
+    font-weight: 500;
+    /*display: block;*/
+}
+
+.nav-tabs {
+    display: flex;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+  }
+
+.nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav .hover-image-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: #ffffff;
+    font-weight: 500;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+
+.nav .hover-image-link:hover {
+    color: #ff8800;
+    font-weight: 500;
+    text-decoration: none;
+    padding-top: 0;
+}
+
+.nav .hover-image-link img.first-image {
+    display: inline;
+}
+
+.nav .hover-image-link img.second-image {
+    display: none;
+}
+
+.nav .hover-image-link:hover img.first-image {
+    display: none;
+}
+
+.nav .hover-image-link:hover img.second-image {
+    display: inline;
+    background-color: #ffffff;
+}
+
+.b-dics__slider {
+    color: #f0f0f0;
+}
+.b-dics__slider:after {
+    width: 2px;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

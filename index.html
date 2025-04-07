@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>SN-NIR</title>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="./neural/npm/bootstrap%405.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="./neural/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./js/dics/dics.original.css">
+    <script src="./js/dics/dics.original.js"></script>
+    <script src="./js/event_handler.js"></script>
+
+    <link href="./neural/css?family=IBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+    <link href="./neural/css-1?family=Inconsolata:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/style_neural.css">
+</head>
+
+<body lang="en">
+    <main role="main">
+
+        <section class="jumbotron text-center" id="banner">
+            <div class="container text-center" id="title">
+                <h2 class="jumbotron-heading text-center" style="line-height: 35px;">
+                   Normal-guided Detail-Preserving Neural Implicit Function for High-Fidelity 3D Surface Reconstruction
+                </h2>
+                
+            </div>
+
+            <div class="container" style="max-width: none; margin-top:10px;">
+
+                <div class="row row-author" style="margin: 0 70px 0 70px; ">
+                    <div class="col-md author">
+                        <a class="link" href="https://www.linkedin.com/in/aaryapatel007/" target="_blank">Aarya Patel</a><sup style="margin-right:10px">1</sup>
+                        <a class="link" href="https://researchportal.murdoch.edu.au/esploro/profile/hamid_laga/overview" target="_blank">Hamid Laga</a><sup>2</sup>
+                        <a class="link" href="https://www.iiitd.ac.in/ojaswa" target="_blank">Ojaswa Sharma</a><sup>1</sup>
+                    </div>   
+                </div>  
+
+                <div class="row" style="margin-top:0.5rem; margin-left: auto; margin-right: auto;">
+                    <div class="col-md">
+                        <div id="affiliation">
+                            <sup>1</sup>Graphics Research Group, IIIT Delhi, India &nbsp;&nbsp;&nbsp;&nbsp; 
+                            <sup>2</sup>Murdoch University, Perth, Australia
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="venue">
+                ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games (<b>I3D</b>), 2025<br><br>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <ul class="nav nav-pills">
+                        <li style="padding-top: 10px;" class="space-between">
+                            <a href="https://arxiv.org/abs/2406.04861" class="hover-image-link" style="padding-top: 0;">
+                            <image class="first-image" src="./assets/icons/paper.png" width="60px"></image>
+                            <image class="second-image" src="./assets/icons/paper_hover.png" width="60px"></image>
+                            <h3 style="font-size: 1.2rem; padding-top: 10px;"><strong>Paper</strong></h3>
+                            </a>
+                        </li>
+                        <li style="padding-top: 10px;"  class="space-between">
+                            <a href="https://github.com/graphics-research-group/sn-nir" class="hover-image-link" >
+                            <image class="first-image" src="./assets/icons/github.png" width="60px"></image>
+                            <image class="second-image" src="./assets/icons/github_hover.png" width="60px"></image>
+                            <h3 style="font-size: 1.2rem; padding-top: 10px;"><strong>Code</strong></h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container" style="padding-top: 20px;">
+        </section>
+    </main>
+
+
+    <div class="container">
+
+        <hr style="border-top: 3px double;">
+
+        <!-- Abstract -->
+        <h5>Abstract</h5>
+        <p style="text-align: justify; padding-bottom: 30px;">
+            Neural implicit representations have emerged as a powerful paradigm for 3D reconstruction.
+		However, despite their success, existing methods fail to capture fine geometric details and thin structures, especially in scenarios where
+		only sparse multi-view RGB images of the objects of interest are available.
+		In this paper, we show that training neural representations with first-order differential properties (surface normals) leads
+		to highly accurate 3D surface reconstruction, even with as few as two RGB images. Using input RGB images,
+		we compute approximate ground truth surface normals from depth maps produced by an off-the-shelf monocular depth estimator.
+		During training, we directly locate the surface point of the SDF network and supervise its normal with the one estimated from the depth map.
+		Extensive experiments demonstrate that our method achieves state-of-the-art reconstruction accuracy with a minimal number of views,
+		capturing intricate geometric details and thin structures that were previously challenging to capture.
+        </p>
+
+        <!-- Overview -->
+        <h5>Overview</h5>
+        <div class="text-center;" style="padding-top: 30px; padding-bottom: 30px">
+            <image src="./assets/snnir/images/Methodology_snnir.jpg" class="img-responsive" alt="intro">
+        </div>
+        <p style="text-align: justify;">
+            An overview of our method. Our method involves the following steps: (a) We cast camera rays from each pixel into the scene
+             while sampling \(m\) points along the ray. (b) For each sampled point, we find the corresponding SDF \(\hat{q}\) and
+              rendered RGB color \(\hat{c}\) using an SDF and Neural Renderer network, respectively. Then we use volume rendering in a
+               differentiable manner to find the rendered color for each pixel. (c) Finally, we additionally supervise our network with
+                Depth-Normal Consistency loss that enables the 3D reconstruction of intricate geometric details and
+thin structures.
+        </p>
+		
+        <hr style="border-top: 3px double;">
+        <h5>Rendering Results</h5>
+        <h6>Novel view synthesis: Examples of RGB images and their corresponding normal maps rendered, using our approach, from novel views.</h6> 
+        <div class="container;" style=" padding-bottom: 10px;">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="object-bmvsimages-render">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(0)">Bear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(1)">Camera</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(2)">Clock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="objectRenderEvent(3)">Dog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(4)">Durian</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(5)">Gundam</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(6)">Jade</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(7)">Man</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectRenderEvent(8)">Stone</a>
+                </li>
+            </ul>
+            <div class="bordered-container">
+            <div class="b-dics" style="width: 100%; font-weight: 600; margin: 0 auto;">
+                <img src="./assets/snnir/images/render_bmvs/dog/rgb.png" alt="RGB">
+                <img src="./assets/snnir/images/render_bmvs/dog/normal.png" alt="Normal">
+            </div>
+            </div>
+        </div>
+
+        <hr style="border-top: 3px double;">
+        <h5>Reconstruction Results</h5>
+
+        <!-- <hr style="border-top: 3px double;"> -->
+        <h6>Comparison on the <a href="https://sites.google.com/site/photometricstereodata/mv">DiLiGenT-MV dataset</a> with 2 input views (front and back): Ours (mono-illumination) vs <a href="https://ywq.github.io/psnerf/">PS-NeRF [ECCV 2022]</a> (multi-illumination) vs <a href="https://lingjie0206.github.io/papers/NeuS/">NeuS [NeurIPS 2021]</a> (mono-illumination).</h6>
+
+        <div class="container;" style=" padding-bottom: 10px;">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEvent(0)">Bear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEvent(1)">Buddha</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEvent(2)">Cow</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="objectSceneEvent(3)">Pot2</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEvent(4)">Reading</a>
+                </li>
+            </ul>
+            <div class="bordered-container">
+            <div class="b-dics" style="width: 70%; font-weight: 600; margin: 0 auto;">
+                <img src="./assets/snnir/images/cmp_ps_methods/pot2/psnerf.png" alt="PS-NeRF">
+                <img src="./assets/snnir/images/cmp_ps_methods/pot2/ours.png" alt="Ours">
+                <img src="./assets/snnir/images/cmp_ps_methods/pot2/neus.png" alt="NeuS">
+            </div>
+            </div>
+        </div>
+
+
+        <!-- Comparisons Images -->
+        <h6>Comparison with SOTA on the <a href="https://sites.google.com/site/photometricstereodata/mv">DiLiGenT-MV dataset</a> with different number of input views: Ours (mono-illumination) vs <a href="https://github.com/CyberAgentAILab/SuperNormal">Super Normal [CVPR 2024]</a> (multi-illumination) vs <a href="https://github.com/bbrument/RNb-NeuS/">RNb-NeuS [CVPR 2024]</a> (multi-illumination).</h6>
+
+        <div class="container;" style=" padding-bottom: 10px; font-size: 0;">
+            <ul class="nav nav-tabs nav-fill nav-justified" style="font-size: 16px;" id="modelChoice">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="changeModel(0)">Bear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="changeModel(1)">Buddha</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="changeModel(2)">Cow</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="changeModel(3)">Pot2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="changeModel(4)">Reading</a>
+                </li>
+            </ul>
+            <ul class="nav nav-tabs nav-fill nav-justified" id="viewChoice">
+            <li class="nav-item" style="font-size: 16px;">
+                <a class="nav-link active" onclick="changeView(0)">2 views</a>
+            </li>
+            <li class="nav-item" style="font-size: 16px;">
+                <a class="nav-link" onclick="changeView(1)">5 views</a>
+            </li>
+            <li class="nav-item" style="font-size: 16px;">
+                <a class="nav-link" onclick="changeView(2)">10 views</a>
+            </li>
+            <li class="nav-item" style="font-size: 16px;">
+                <a class="nav-link" onclick="changeView(3)">15 views</a>
+            </li>
+            <li class="nav-item" style="font-size: 16px;">
+                <a class="nav-link" onclick="changeView(4)">20 views</a>
+            </li>
+        </ul>
+            <div class="bordered-container">
+            <div class="b-dics" style="width: 70%; font-weight: 600; margin: 0 auto;">
+                <img src="./assets/snnir/images/cmp_diff_views_methods/cow/sn_2.png" alt="Super Normal">
+                <img src="./assets/snnir/images/cmp_diff_views_methods/cow/ours_2.png" alt="Ours">
+                <img src="./assets/snnir/images/cmp_diff_views_methods/cow/rnb_neus_2.png" alt="RNb-NeuS">
+            </div>
+            </div>
+        </div>
+
+        <h6>Comparison with <a href="https://turandai.github.io/projects/gaussian_surfels/">Gaussian Surfels [SIGGRAPH 2024]</a> (SOTA) on the <a href="https://github.com/YoYo000/BlendedMVS">BMVS dataset</a> with all input views setting.</h6>
+
+        <div class="container;" style=" padding-bottom: 10px;">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="object-bmvsobjects-recon">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventBMVS(0)">Camera</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="objectSceneEventBMVS(1)">Clock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventBMVS(2)">Cow</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventBMVS(3)">Dog</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventBMVS(4)">Man</a>
+                </li>
+            </ul>
+            <div class="bordered-container">
+            <div class="b-dics" style="width: 70%; font-weight: 600; margin: 0 auto;">
+                <img src="./assets/snnir/images/cmp_bmvs/clock/gs.png" alt="Gaussian Surfels">
+                <img src="./assets/snnir/images/cmp_bmvs/clock/ours.png" alt="Ours">
+            </div>
+            </div>
+        </div>
+
+        
+        <h6>Comparison with <a href="https://turandai.github.io/projects/gaussian_surfels/">Gaussian Surfels [SIGGRAPH 2024]</a> (SOTA) on the <a href="https://github.com/YoYo000/BlendedMVS">BMVS dataset</a> with all input views setting.</h6>
+
+        <div class="container;" style=" padding-bottom: 10px;">
+            <ul class="nav nav-tabs nav-fill nav-justified" id="object-DTUobjects-recon">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="objectSceneEventDTU(0)">Scan 24</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventDTU(1)">Scan 69</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventDTU(2)">Scan 106</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventDTU(3)">Scan 114</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" onclick="objectSceneEventDTU(4)">Scan 122</a>
+                </li>
+            </ul>
+            <div class="bordered-container">
+            <div class="b-dics" style="width: 70%; font-weight: 600; margin: 0 auto;">
+                <img src="./assets/snnir/images/cmp_dtu/scan24/gs.png" alt="Gaussian Surfels">
+                <img src="./assets/snnir/images/cmp_dtu/scan24/ours.png" alt="Ours">
+            </div>
+            </div>
+        </div>
+
+        <!-- Citation -->
+        <hr style="border-top: 3px double;">
+        <h5>Citation</h5>
+        <div class="row">
+            <div id="citation">
+                @Article{Patel25,<br>
+                &nbsp;&nbsp;title={Normal-guided Detail-Preserving Neural Implicit Function for High-Fidelity 3D Surface Reconstruction},<br>
+                &nbsp;&nbsp;author={Patel, Aarya and Laga, Hamid and Sharma, Ojaswa},<br>
+                &nbsp;&nbsp;journal = {Proceedings of the ACM on Computer Graphics and Interactive Techniques},<br>
+                &nbsp;&nbsp;number = {1},<br>
+                &nbsp;&nbsp;volume = {8},<br>
+                &nbsp;&nbsp;article = {12},<br>
+                &nbsp;&nbsp;month = {May},<br>
+                &nbsp;&nbsp;year={2025},<br>
+                &nbsp;&nbsp;doi={https://doi.org/10.1145/3728293}<br>
+                }
+            </div> 
+        </div>
+        <div style="text-align:center;">
+            <button id="copy-button" class="copy-button" onclick="copyTextToClipboard()" >Copy</button>
+        </div>
+
+        <!-- Acknowledgements -->
+        <hr style="border-top: 3px double;">
+        <h5>Acknowledgements</h5>
+        <p style="text-align: justify;">
+            Aarya Patel is funded by the Prime Minister's Fellowship for Doctoral Research, jointly supported by the Science & Engineering Research Board (SERB), Department of Science and Technology (DST), Government of India, and Dolby Laboratories India. Hamid Laga is supported in part by the Australian Research Council (ARC) Discovery Grant no. DP220102197.
+        </p>
+
+    </div>
+
+    <div id="copyMessage">
+        @Article{Patel25,
+            title={Normal-guided Detail-Preserving Neural Implicit Function for High-Fidelity 3D Surface Reconstruction},
+            author={Patel, Aarya and Laga, Hamid and Sharma, Ojaswa},
+            journal = {Proceedings of the ACM on Computer Graphics and Interactive Techniques},
+            number = {1},
+            volume = {8},
+            article = {12},
+            month = {May},
+            doi = {https://doi.org/10.1145/3728293},
+            year={2025}
+          }
+    </div>
+    
+            <script>  
+                function copyTextToClipboard() {
+                    // Get the text with line breaks
+                    const textWithLineBreaks = document.getElementById('copyMessage').innerHTML;
+    
+                    // Copy the text to the clipboard
+                    navigator.clipboard.writeText(textWithLineBreaks)
+                        .then(() => {
+                            // Optionally, provide some feedback to the user
+                            document.getElementById('copy-button').style.backgroundColor = 'green';
+                            document.getElementById('copy-button').textContent = 'Copied';
+                        })
+                        .catch(err => {
+                            console.error('Unable to copy text to clipboard', err);
+                        });
+                    }
+            </script>
+    
+    
+        </div>
+    
+
+</body>
+
+</html>
