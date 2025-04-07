@@ -4,7 +4,7 @@ High-Fidelity 3D Surface Reconstruction**.
 
 #### [<ins>Aarya Patel</ins>](https://www.linkedin.com/in/aaryapatel007/), [<ins>Hamid Laga</ins>](https://researchportal.murdoch.edu.au/esploro/profile/hamid_laga/overview), and [<ins>Ojaswa Sharma</ins>](https://www.iiitd.ac.in/ojaswa)
 
-### [Project page](https://sn-nir.github.io/) | [Paper](https://arxiv.org/abs/2406.04861)
+### [Project page](https://graphics-research-group.github.io/sn-nir/) | [Paper](https://arxiv.org/abs/2406.04861)
 
 <img src="assets/methodology_snnir.jpg">
 
